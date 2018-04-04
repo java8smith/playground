@@ -1,0 +1,286 @@
+{
+	"info": {
+		"_postman_id": "18befe5c-fb17-523d-1ffc-c9c17666ffed",
+		"name": "QuickBooks Desktop SOAP services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/authenticate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<x:Envelope xmlns:x = \"http://schemas.xmlsoap.org/soap/envelope/\" \n   xmlns:tns = \"http://playground/integration\">\n   <x:Header/>\n   <x:Body>\n      <tns:authenticate>\n         <tns:strUserName>smitha</tns:strUserName>\n         <tns:strPassword>foo</tns:strPassword>\n      </tns:authenticate>\n   </x:Body>\n</x:Envelope>"
+				},
+				"url": {
+					"raw": "http://localhost:8080/integrationService/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"integrationService",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Playground SOAP WS",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:wsdl=\"http://smitha.com/wsdl\">\r\n  <soap:Header/>\r\n  <soap:Body>\r\n    <wsdl:multiply>\r\n    \t<arg0>4</arg0>\r\n    \t<arg1>4</arg1>\r\n    </wsdl:multiply>\r\n  </soap:Body>\r\n</soap:Envelope>"
+				},
+				"url": {
+					"raw": "http://localhost:8080/QBD/MyWebService/MyWebServiceImplementation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"QBD",
+						"MyWebService",
+						"MyWebServiceImplementation"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "4d618673-c483-4188-a35f-ab266c4f6b9c",
+					"name": "Playground SOAP WS",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "text/xml",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:wsdl=\"http://smitha.com/wsdl\">\r\n  <soap:Header/>\r\n  <soap:Body>\r\n    <wsdl:multiply>\r\n    \t<arg0>4</arg0>\r\n    \t<arg1>6</arg1>\r\n    </wsdl:multiply>\r\n  </soap:Body>\r\n</soap:Envelope>"
+						},
+						"url": {
+							"raw": "http://localhost:8080/QBD/MyWebService/MyWebServiceImplementation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"QBD",
+								"MyWebService",
+								"MyWebServiceImplementation"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "208",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/xml;charset=ISO-8859-1",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 02 Apr 2018 19:38:14 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "WildFly/10",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Undertow/1",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Mon Jan 18 2038 21:14:07 GMT-0600 (Central Standard Time)",
+							"httpOnly": true,
+							"domain": "localhost",
+							"path": "/",
+							"secure": true,
+							"value": "267867912904391520540728048",
+							"key": "est"
+						},
+						{
+							"expires": "Mon Jan 18 2038 21:14:07 GMT-0600 (Central Standard Time)",
+							"httpOnly": true,
+							"domain": "localhost",
+							"path": "/",
+							"secure": true,
+							"value": "385921960427701520540728309",
+							"key": "portId"
+						}
+					],
+					"body": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><ns2:multiplyResponse xmlns:ns2=\"http://smitha.com/wsdl\"><return>24</return></ns2:multiplyResponse></soap:Body></soap:Envelope>"
+				}
+			]
+		},
+		{
+			"name": "Authenticate Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:wsdl=\"http://playground.com/wsdl\" xmlns:ns1=\"http://integrations.playground.smitha.com/\">\r\n  <soap:Header/>\r\n  <soap:Body>\r\n    <wsdl:authenticate>\r\n    \t<arg0>\r\n    \t\t<ns1:strUserName>sxpara</ns1:strUserName>\r\n    \t\t<ns1:strPassword>pw</ns1:strPassword>\r\n    \t</arg0>\r\n    </wsdl:authenticate>\r\n  </soap:Body>\r\n</soap:Envelope>"
+				},
+				"url": {
+					"raw": "http://localhost:8080/quickbooks-desktop/QBD",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"quickbooks-desktop",
+						"QBD"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "e096b4a3-44bf-4d1c-9cf9-3e8c16f8e8b2",
+					"name": "Authenticate Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "text/xml",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:wsdl=\"http://playground.com/wsdl\" xmlns:ns1=\"http://integrations.playground.smitha.com/\">\r\n  <soap:Header/>\r\n  <soap:Body>\r\n    <wsdl:authenticate>\r\n    \t<arg0>\r\n    \t\t<ns1:strUserName>sxpara</ns1:strUserName>\r\n    \t\t<ns1:strPassword>pw</ns1:strPassword>\r\n    \t</arg0>\r\n    </wsdl:authenticate>\r\n  </soap:Body>\r\n</soap:Envelope>"
+						},
+						"url": {
+							"raw": "http://localhost:8080/quickbooks-desktop/QBD",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"quickbooks-desktop",
+								"QBD"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "351",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/xml;charset=ISO-8859-1",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 03 Apr 2018 16:20:33 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "WildFly/10",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Undertow/1",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Mon Jan 18 2038 21:14:07 GMT-0600 (Central Standard Time)",
+							"httpOnly": true,
+							"domain": "localhost",
+							"path": "/",
+							"secure": true,
+							"value": "267867912904391520540728048",
+							"key": "est"
+						},
+						{
+							"expires": "Mon Jan 18 2038 21:14:07 GMT-0600 (Central Standard Time)",
+							"httpOnly": true,
+							"domain": "localhost",
+							"path": "/",
+							"secure": true,
+							"value": "385921960427701520540728309",
+							"key": "portId"
+						}
+					],
+					"body": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><ns3:authenticateResponse xmlns:ns3=\"http://playground.com/wsdl\" xmlns:ns2=\"http://integrations.playground.smitha.com/\"><return><ns2:authenticateResult><ns2:string>none</ns2:string></ns2:authenticateResult></return></ns3:authenticateResponse></soap:Body></soap:Envelope>"
+				}
+			]
+		}
+	]
+}
